@@ -1,0 +1,23 @@
+{
+  "name": "altman-mode",
+  "description": "A CLAUDE.md that makes Claude Code behave like an ambitious technical co-founder, plus a startup evaluator skill that scores ideas out of 100. Inspired by publicly discussed Sam Altman principles.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Tarcroi"
+  },
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "claude-md",
+    "guidelines",
+    "startup",
+    "evaluator",
+    "altman",
+    "founder",
+    "ambition",
+    "leverage"
+  ],
+  "skills": [
+    "./skills/altman-grader"
+  ]
+}

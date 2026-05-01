@@ -1,0 +1,53 @@
+{
+  "skill_name": "altman-grader",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I want to build an AI assistant for solo lawyers that drafts client emails, summarizes case documents, and tracks deadlines. Target users are solo lawyers and 2-5 person firms. The founder is an ex-lawyer who taught herself to code over the last two years. We charge $99/month. Initial users would come from her existing network of 200 solo practitioners. Score this idea out of 100.",
+      "expected_output": "A full Altman-style evaluation: Short Verdict, Detailed Score table totalling out of 100 across the 10 weighted categories, What Is Strong, What Is Weak, The Questions That Should Obsess You, The More Ambitious Version, The Simpler Starting Wedge, Altman-Style Decision, ending with the line 'Altman-style score: XX / 100'.",
+      "files": [],
+      "expectations": [
+        "Output contains a markdown table with exactly 10 rows scoring each category with the correct max weight (15, 10, 10, 10, 10, 10, 10, 10, 7, 8)",
+        "Output ends with a line matching the pattern 'Altman-style score: <number> / 100'",
+        "Output contains all required sections: Short Verdict, Detailed Score, What Is Strong, What Is Weak, The Questions That Should Obsess You, The More Ambitious Version, The Simpler Starting Wedge, Altman-Style Decision",
+        "Total score is between 0 and 100 and the sum of the 10 category scores matches the stated total",
+        "The Altman-Style Decision section selects exactly one of the seven listed decisions, not multiple"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I have an idea but it's still vague: I want to build a social network for nurses. Can you evaluate it?",
+      "expected_output": "Instead of scoring immediately, the skill asks 7 to 12 sharp founder-facing questions covering problem, target user, why-now, wedge, distribution, founder advantage, business model, and the most likely failure mode. No final score is given yet.",
+      "files": [],
+      "expectations": [
+        "Output contains between 7 and 12 numbered questions",
+        "Output does NOT contain the final phrase 'Altman-style score'",
+        "Output does NOT contain a complete 10-row scoring table",
+        "Questions cover at minimum: the problem, the target user, why now, the wedge, distribution, founder advantage, and the most likely failure reason"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Quick gut check, score it fast even with limited info: Uber for dog walkers in tier-2 European cities. Make assumptions if needed.",
+      "expected_output": "A provisional evaluation with explicit assumptions, ending with 'Provisional score: XX / 100' rather than the final phrase. The score should be relatively low given the well-known marketplace cold-start, weak unit economics, and lack of compounding advantage in this category.",
+      "files": [],
+      "expectations": [
+        "Output explicitly labels assumptions made due to limited information",
+        "Output ends with 'Provisional score: <number> / 100' rather than 'Altman-style score'",
+        "Output does NOT exceed 75 (this is a tarpit-shaped marketplace idea and the rubric caps strict scoring)",
+        "Output mentions at least one of: marketplace cold-start, unit economics, weak moat, weak compounding"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Can you review this React component for performance issues? function MyList({items}) { return items.map(i => <Row key={i.id} data={i} />) }",
+      "expected_output": "The skill should NOT trigger for code review tasks. If it does respond, it should redirect the user — this is not a startup idea.",
+      "files": [],
+      "expectations": [
+        "Output does NOT contain a 10-category scoring table",
+        "Output does NOT contain the line 'Altman-style score'",
+        "If the skill responds at all, it redirects the user to a code-review workflow rather than evaluating it as a startup"
+      ]
+    }
+  ]
+}

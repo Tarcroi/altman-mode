@@ -1,0 +1,34 @@
+{
+  "name": "altman-skills",
+  "id": "altman-skills",
+  "owner": {
+    "name": "Tarcroi"
+  },
+  "metadata": {
+    "description": "A CLAUDE.md and a startup evaluator skill that make Claude Code think like a founder. Inspired by publicly discussed Sam Altman principles.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "altman-mode",
+      "source": "./",
+      "description": "Make Claude Code stop hedging. A CLAUDE.md that forces leverage, shipping speed, AI-as-product thinking, safety-by-design, and direct answers — plus a brutal startup evaluator that scores ideas out of 100.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Tarcroi"
+      },
+      "keywords": [
+        "claude-code",
+        "claude-md",
+        "guidelines",
+        "startup",
+        "evaluator",
+        "altman",
+        "founder",
+        "ambition",
+        "leverage"
+      ],
+      "category": "workflow"
+    }
+  ]
+}
