@@ -11,7 +11,8 @@
         "Output ends with a line matching the pattern 'Altman-style score: <number> / 100'",
         "Output contains all required sections: Short Verdict, Detailed Score, What Is Strong, What Is Weak, The Questions That Should Obsess You, The More Ambitious Version, The Simpler Starting Wedge, Altman-Style Decision",
         "Total score is between 0 and 100 and the sum of the 10 category scores matches the stated total",
-        "The Altman-Style Decision section selects exactly one of the seven listed decisions, not multiple"
+        "The Altman-Style Decision section selects exactly one of the seven listed decisions, not multiple",
+        "Output cites at least one specific external fact obtained via web search (e.g., a named competitor, a funding amount, a recent regulatory or market shift) OR explicitly includes the caveat that web verification was unavailable"
       ]
     },
     {
@@ -48,6 +49,19 @@
         "Output does NOT contain a 10-category scoring table",
         "Output does NOT contain the line 'Altman-style score'",
         "If the skill responds at all, it redirects the user to a code-review workflow rather than evaluating it as a startup"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Score my idea: a Cursor competitor focused on terminal-first development. AI pair programmer that lives in tmux instead of VSCode. Target users: solo developer power users who already live in the terminal. Pricing: $20/month. We've already shipped a working MVP.",
+      "expected_output": "The skill runs the Step 2 reality check, identifies multiple existing competitors in this saturated AI-coding-tools category, cites at least 2 of them by name in the verdict, and adjusts Moat & compounding plus Distribution scores downward accordingly.",
+      "files": [],
+      "expectations": [
+        "Output cites at least 2 concrete competitor names that exist in the AI-coding-tools space (e.g., Cursor, Codeium, Continue.dev, Aider, Tabnine, GitHub Copilot, Zed, Warp, etc.)",
+        "Moat & compounding score reflects the crowded competitive landscape (typically ≤ 5/10 for this category)",
+        "Distribution score reflects saturation of the AI coding tools acquisition channels (typically ≤ 6/10)",
+        "Verdict or What Is Weak explicitly references the competitive density",
+        "Output ends with 'Altman-style score: <number> / 100'"
       ]
     }
   ]

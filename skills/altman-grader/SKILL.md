@@ -86,31 +86,73 @@ Quick mapping of what each category needs to count as KNOWN:
 
 If the pitch is detailed, most categories will be KNOWN or HINTED. Don't ask about things you already have.
 
-### Step 2 — Decide what to do next
+### Step 2 — Reality check via web research (always run, 5 to 10 searches)
 
-- **≥ 7 categories KNOWN or strongly HINTED** → go to Step 5 (score now). Mark assumptions on the gaps in the output.
-- **4 to 6 categories clear** → go to Step 3 and ask ONE question about the single most important gap.
-- **Fewer than 4 clear** → go to Step 3, ask ONE question, in priority order: problem → user → why-now → wedge.
-- **User explicitly asks for "score it now", "fast eval", "gut check"** → go to Step 4 (provisional).
+Before deciding, ground the evaluation in current reality. Run **between 5 and 10 targeted web searches** with the WebSearch tool. The score must reflect the world as it actually is, not just the user's framing.
 
-### Step 3 — Ask exactly one question, then loop
+**Mandatory searches (always run all 3):**
+
+1. **Direct competitors.** Who is already in this space, named explicitly?
+   Example query: `"AI for solo lawyers" startup 2025 OR 2026`
+   Extract: incumbent names, positioning, scale, funding amounts where available.
+
+2. **Recent funding / news in the category.** Did the category just heat up or implode?
+   Example query: `"legal AI" funding raised 2025`
+   Extract: investor activity, valuations, recent failures or pivots.
+
+3. **Why-now technical or market shift.** Is the timing claim real?
+   Example query: `Claude OR GPT-5 legal document accuracy benchmark 2025`
+   Extract: capability shifts, cost curves, regulation, cultural changes.
+
+**Conditional searches (run at least 2 more, up to 7 more, picked to fit the pitch):**
+
+- YC / accelerator batches in this category (signals crowding).
+- Product Hunt or Hacker News launch activity (consumer demand signal).
+- Specific competitor verification if the user named one.
+- Regulatory check for fintech, health, legal, or AI-safety adjacent ideas.
+- Founder / prior-company check if names or specifics are given.
+- Adjacent failed startups (tarpit detection — "X for Y" graveyard).
+
+**Hard floor: 5 searches. Hard cap: 10.** Below 5 you don't have enough signal; above 10 you're writing a thesis, not scoring an idea.
+
+**If WebSearch is unavailable** (tool disabled, persistent errors, no network): skip this step gracefully. In the final output, add a one-line caveat: *"Note: web verification was not available — score is based on the pitch alone."*
+
+**Synthesize, don't dump.** Do not paste raw search results at the user. Extract concrete facts:
+
+- 2 to 5 named direct competitors with rough scale/funding when available.
+- One concrete why-now signal (or its absence).
+- One tarpit signal if found.
+- Anything the user got materially wrong about the market.
+
+These facts must be **cited** in the verdict, in `What Is Strong`, and in `What Is Weak` (Step 7). The scores for **Timing**, **Moat & compounding**, and **Distribution** must anchor on what the web actually shows.
+
+### Step 3 — Decide what to do next
+
+Based on the parsed pitch and the reality-check findings:
+
+- **≥ 7 categories KNOWN or strongly HINTED** → go to Step 6 (score now). Mark assumptions on any gaps.
+- **4 to 6 categories clear** → go to Step 4 and ask ONE question about the single most important gap. Use reality-check findings to make the question sharper ("Cursor just raised $100M — what's your specific orthogonal angle?").
+- **Fewer than 4 clear** → go to Step 4, ask ONE question, in priority order: problem → user → why-now → wedge.
+- **User explicitly asks for "score it now", "fast eval", "gut check"** → go to Step 5 (provisional).
+
+### Step 4 — Ask exactly one question, then loop
 
 **One question at a time. Never list more than one. Never use a numbered enumeration of questions.**
 
 Each question should be:
 
 - Sharp — 1 to 2 sentences max
-- Specific — reference what the user already said when relevant ("You mentioned X — what does that look like for the first 10 users?")
+- Specific — reference what the user already said AND what the reality check found, when relevant
 - Founder-facing — cuts to a real decision they need to make
 - Tied to one category — one question = one missing dimension
 
-After the user answers, return to Step 1 and re-parse with the new info. Re-decide what to do. Cap the questioning at **3 to 4 rounds total** before forcing a score. If the user keeps dodging or staying vague, produce a provisional score and name the persistent gaps.
+After the user answers, return to Step 1 and re-parse with the new info, then jump to Step 3 (re-decide). **Do not re-run Step 2** — the web findings stay valid for the rest of the conversation. Cap questioning at **3 to 4 rounds total** before forcing a score. If the user keeps dodging or staying vague, produce a provisional score and name the persistent gaps.
 
 Why one at a time: a wall of 12 questions feels like a homework assignment, not a conversation. One sharp question gets a real answer; twelve get vague paragraphs or silence.
 
-### Step 4 — Provisional scoring (fast evaluation path)
+### Step 5 — Provisional scoring (fast evaluation path)
 
-When the user wants a quick read with thin info, produce a provisional score. Make every assumption explicit and label them clearly.
+When the user wants a quick read with thin info, produce a provisional score. Make every assumption explicit and label them clearly. Reality-check findings should still be cited.
 
 End with:
 
@@ -118,19 +160,35 @@ End with:
 
 Do not use the final "Altman-style score" phrase here.
 
-### Step 5 — Score across 10 categories
+### Step 6 — Score across 10 categories
 
 Use the rubric in the **Scoring rubric** section below. Each category contributes a fixed weight; total = 100.
 
+Anchor the score on observed reality, not the pitch's claims:
+
+- **Timing (10 pts)** must match what the web actually shows about recent shifts.
+- **Moat & compounding (10 pts)** must account for already-funded competitors found in Step 2.
+- **Distribution (10 pts)** drops if the channels are saturated by incumbents.
+
 Be strict. **Most ideas should not score above 75.** Scores above 85 are rare. Scores above 90 require exceptional ambition, timing, market, founder advantage, and compounding potential.
 
-### Step 6 — Produce the structured output
+### Step 7 — Produce the structured output
 
-Use the **Output format** template below exactly. End with the final line.
+Use the **Output format** template below exactly.
+
+**Cite Step 2 reality-check findings in the prose sections.** At minimum:
+
+- The `Short Verdict` references one concrete external fact when relevant (a named incumbent, a recent funding round, a market shift).
+- `What Is Weak` cites at least one specific competitor or saturation signal if any was found.
+- `What Is Strong` cites at least one supportive market signal if any was found.
+
+If web verification was unavailable, replace those citations with the one-line caveat from Step 2.
+
+End with the final scoring line.
 
 ## Question style reference
 
-When Step 3 fires, use these as a feel for HOW to ask — not as a checklist to dump. Pick the one closest to the category you're probing, then adapt it to the user's specific pitch.
+When Step 4 fires, use these as a feel for HOW to ask — not as a checklist to dump. Pick the one closest to the category you're probing, then adapt it to the user's specific pitch.
 
 - What painful problem does this solve that people already spend time or money trying to fix?
 - Who is the first narrow group of users who would be irrationally excited by this?

@@ -14,7 +14,7 @@ Fine for tutorials. Wrong mode for serious AI, startup, and infrastructure work.
 
 - **A `CLAUDE.md`** that rewires Claude's defaults around five rules: leverage, shipping speed, AI-as-product, safety-by-design, directness.
 - **The `altman-mode-install` skill** — a one-liner setup. Tell Claude "install altman-mode in this project" and it drops (or merges) the CLAUDE.md into your project.
-- **The `altman-grader` skill** — a brutal startup evaluator. You hand it an idea, it parses what's there, asks one sharp question at a time on what's missing, then scores it out of 100 across 10 weighted categories.
+- **The `altman-grader` skill** — a brutal startup evaluator. You hand it an idea. It parses what's there, **runs 5–10 web searches** to verify competitors, recent funding, and timing signals, asks one sharp question at a time on what's still missing, then scores it out of 100 across 10 weighted categories — anchored on what the web actually shows.
 
 ## Install
 
@@ -89,7 +89,7 @@ The full file is ~450 lines: [`CLAUDE.md`](./CLAUDE.md).
 
 ## The startup evaluator
 
-Hand it an idea. It parses what your pitch already covers across 10 dimensions (problem, user, why-now, wedge, distribution, moat, founder fit, business model, risk, ambition), then asks **one sharp question at a time** on whatever's missing — no homework dumps. Once it has enough, it produces a structured score out of 100, plus what's strong, what's weak, what should obsess you, a 10x-bigger version, a simpler wedge, and a one-line decision.
+Hand it an idea. It parses what your pitch already covers across 10 dimensions (problem, user, why-now, wedge, distribution, moat, founder fit, business model, risk, ambition), then **hits the web** for 5 to 10 targeted searches — direct competitors, recent funding rounds, why-now signals, tarpit warnings. With reality on the table it asks **one sharp question at a time** on whatever's still missing (no homework dumps), then produces a structured score out of 100, plus what's strong, what's weak, what should obsess you, a 10x-bigger version, a simpler wedge, and a one-line decision. Findings from the web are cited inline.
 
 The closing line of every full evaluation:
 

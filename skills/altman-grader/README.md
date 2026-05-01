@@ -4,7 +4,14 @@ A Claude Code skill that scores startup, AI, or product ideas out of 100 — bru
 
 ## What it does
 
-Drop in an idea. Get back a score, a verdict, what's strong, what's weak, the questions that should obsess you, a 10x bigger version, a simpler wedge, and a one-line decision.
+Drop in an idea. The skill:
+
+1. **Parses** what your pitch already covers across 10 dimensions.
+2. **Reality-checks** it on the web — 5 to 10 targeted searches for competitors, recent funding, why-now signals, and tarpit warnings.
+3. **Asks one sharp question at a time** on whatever's still missing (never a numbered list).
+4. **Scores** the idea out of 100, anchored on what the web actually shows — not just your framing.
+
+You get back: a verdict, the score table, what's strong, what's weak, the questions that should obsess you, a 10x-bigger version, a simpler wedge, and a one-line decision. Findings from the web are cited inline.
 
 Most ideas score below 75. That's the point.
 
