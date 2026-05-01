@@ -9,9 +9,11 @@ description: >
   "what would Sam Altman think", "tell me if this is a good business",
   "critique my MVP", "score this pitch", or wants stress-testing of ambition,
   timing, wedge, moat, distribution, founder-market fit, or business model.
-  The skill asks 7–12 sharp founder-facing questions first, then produces a
-  verdict and a structured score out of 100 across ten weighted categories,
-  ending with a final Altman-style decision. Do not use for code reviews,
+  The skill first parses what the pitch already covers, then asks one sharp
+  question at a time on the most critical missing dimension (never a numbered
+  list of questions), and once enough is known produces a verdict and a
+  structured score out of 100 across ten weighted categories, ending with a
+  final Altman-style decision. Do not use for code reviews,
   technical architecture critiques, debugging help, or generic product
   feedback unrelated to startup viability.
 license: MIT
@@ -57,40 +59,78 @@ If information is sparse, ask sharp questions first. Do not invent details.
 
 ## Procedure
 
-### Step 1 — Decide whether to ask questions or score immediately
+**The cardinal rule: never dump a numbered list of questions at the user.** Real conversation, one question at a time, only on what's actually missing from their pitch.
 
-If the user provides enough detail (problem, user, why-now, wedge, business model, founder advantage), skip to Step 4.
+### Step 1 — Parse what the user already gave you
 
-If the user provides only a short pitch, go to Step 2.
+Read the pitch carefully. For each of the 10 scoring categories, tag its status:
 
-If the user explicitly asks for a "fast evaluation" or "first read" with limited info, go to Step 3.
+- **KNOWN** — directly addressed with usable detail
+- **HINTED** — partially addressed, not crisp enough to score confidently
+- **MISSING** — no information at all
 
-### Step 2 — Ask 7 to 12 sharp founder-facing questions
+Quick mapping of what each category needs to count as KNOWN:
 
-Use the **first response template** below. Skip any question already answered. Aim for 7–12 questions, not more, not less.
+| Category | What signals KNOWN |
+|---|---|
+| Problem intensity | Who hurts, how often, what they spend today |
+| Target user | A specific segment (not "everyone", not "developers") |
+| Timing (why now) | A concrete recent shift — model capability, cost curve, regulation, behavior |
+| Wedge | First narrow user group + smallest useful product |
+| Technical leverage | Where AI or tech makes the business structurally different |
+| Moat & compounding | What gets stronger over time |
+| Distribution | A real acquisition channel — not "we'll post on HN" |
+| Founder-market fit | Specific reason this team can win |
+| Business model | Who pays what and why, with rough economics |
+| Risk | At least one concrete failure mode acknowledged |
 
-```text
-I will evaluate this in Altman-style mode: ambition, timing, market, wedge, distribution, moat, founder-market fit, and risks.
+If the pitch is detailed, most categories will be KNOWN or HINTED. Don't ask about things you already have.
 
-Before scoring it, answer these questions:
+### Step 2 — Decide what to do next
 
-1. What exact problem are you solving?
-2. Who exactly is the target user?
-3. How often does this problem happen?
-4. How do these people solve it today?
-5. Why now?
-6. What is the first narrow user niche you would attack?
-7. What is the simplest MVP version?
-8. How do you get your first 100 users?
-9. What gets better as the product scales?
-10. Why can you or your team win?
-11. How does the company make money?
-12. What is the most likely reason this fails?
+- **≥ 7 categories KNOWN or strongly HINTED** → go to Step 5 (score now). Mark assumptions on the gaps in the output.
+- **4 to 6 categories clear** → go to Step 3 and ask ONE question about the single most important gap.
+- **Fewer than 4 clear** → go to Step 3, ask ONE question, in priority order: problem → user → why-now → wedge.
+- **User explicitly asks for "score it now", "fast eval", "gut check"** → go to Step 4 (provisional).
 
-Answer roughly, even if imperfectly. Then I will give you the score out of 100.
-```
+### Step 3 — Ask exactly one question, then loop
 
-**Question style.** Sharp, founder-facing, not business-school. Examples:
+**One question at a time. Never list more than one. Never use a numbered enumeration of questions.**
+
+Each question should be:
+
+- Sharp — 1 to 2 sentences max
+- Specific — reference what the user already said when relevant ("You mentioned X — what does that look like for the first 10 users?")
+- Founder-facing — cuts to a real decision they need to make
+- Tied to one category — one question = one missing dimension
+
+After the user answers, return to Step 1 and re-parse with the new info. Re-decide what to do. Cap the questioning at **3 to 4 rounds total** before forcing a score. If the user keeps dodging or staying vague, produce a provisional score and name the persistent gaps.
+
+Why one at a time: a wall of 12 questions feels like a homework assignment, not a conversation. One sharp question gets a real answer; twelve get vague paragraphs or silence.
+
+### Step 4 — Provisional scoring (fast evaluation path)
+
+When the user wants a quick read with thin info, produce a provisional score. Make every assumption explicit and label them clearly.
+
+End with:
+
+**Provisional score: XX / 100**
+
+Do not use the final "Altman-style score" phrase here.
+
+### Step 5 — Score across 10 categories
+
+Use the rubric in the **Scoring rubric** section below. Each category contributes a fixed weight; total = 100.
+
+Be strict. **Most ideas should not score above 75.** Scores above 85 are rare. Scores above 90 require exceptional ambition, timing, market, founder advantage, and compounding potential.
+
+### Step 6 — Produce the structured output
+
+Use the **Output format** template below exactly. End with the final line.
+
+## Question style reference
+
+When Step 3 fires, use these as a feel for HOW to ask — not as a checklist to dump. Pick the one closest to the category you're probing, then adapt it to the user's specific pitch.
 
 - What painful problem does this solve that people already spend time or money trying to fix?
 - Who is the first narrow group of users who would be irrationally excited by this?
@@ -102,26 +142,6 @@ Answer roughly, even if imperfectly. Then I will give you the score out of 100.
 - Why are you the right person to build this?
 - What is your unfair advantage?
 - What is the scariest reason this might fail?
-
-### Step 3 — Provisional scoring (fast evaluation path)
-
-When the user wants a quick read with thin info, produce a provisional score. Make assumptions explicit and label them clearly.
-
-End with:
-
-**Provisional score: XX / 100**
-
-Do not use the final "Altman-style score" phrase here.
-
-### Step 4 — Score across 10 categories
-
-Use the rubric in the **Scoring rubric** section below. Each category contributes a fixed weight; total = 100.
-
-Be strict. **Most ideas should not score above 75.** Scores above 85 are rare. Scores above 90 require exceptional ambition, timing, market, founder advantage, and compounding potential.
-
-### Step 5 — Produce the structured output
-
-Use the **Output format** template below exactly. End with the final line.
 
 ## Scoring rubric
 

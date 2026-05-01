@@ -45,7 +45,7 @@ altman-grader/
 `evals/evals.json` ships 4 test cases:
 
 1. Detailed pitch → full score with all sections
-2. Vague idea → 7–12 sharp questions, no score yet
+2. Vague idea → ONE sharp question on the biggest gap, no score yet (no numbered list)
 3. "Score it fast" → provisional score with explicit assumptions
 4. Code review prompt → must NOT trigger (anti-trigger)
 

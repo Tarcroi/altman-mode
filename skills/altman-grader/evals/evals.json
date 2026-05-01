@@ -17,13 +17,14 @@
     {
       "id": 2,
       "prompt": "I have an idea but it's still vague: I want to build a social network for nurses. Can you evaluate it?",
-      "expected_output": "Instead of scoring immediately, the skill asks 7 to 12 sharp founder-facing questions covering problem, target user, why-now, wedge, distribution, founder advantage, business model, and the most likely failure mode. No final score is given yet.",
+      "expected_output": "The skill does not score yet. Instead it asks ONE sharp question on the most critical missing dimension (problem clarity, target user, or why-now), conversationally. No numbered list of questions, no homework dump.",
       "files": [],
       "expectations": [
-        "Output contains between 7 and 12 numbered questions",
+        "Output asks exactly one question — not a numbered list of multiple questions",
+        "Output does NOT contain a numbered enumeration of more than 2 questions",
         "Output does NOT contain the final phrase 'Altman-style score'",
         "Output does NOT contain a complete 10-row scoring table",
-        "Questions cover at minimum: the problem, the target user, why now, the wedge, distribution, founder advantage, and the most likely failure reason"
+        "The question targets one of: problem clarity, target user specificity, why-now, or the wedge — not a generic checklist"
       ]
     },
     {
