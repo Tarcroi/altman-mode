@@ -51,13 +51,15 @@ Always fetch the latest content from the canonical URL:
 https://raw.githubusercontent.com/Tarcroi/altman-mode/main/CLAUDE.md
 ```
 
-Use Bash with curl:
+Use Bash with curl. Always include `--ssl-no-revoke`:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Tarcroi/altman-mode/main/CLAUDE.md
+curl -fsSL --ssl-no-revoke https://raw.githubusercontent.com/Tarcroi/altman-mode/main/CLAUDE.md
 ```
 
-If curl fails (no network, 404, empty response), abort and tell the user the source could not be fetched. Do not write anything.
+The `--ssl-no-revoke` flag is required on Windows: the schannel TLS backend often fails with `CRYPT_E_NO_REVOCATION_CHECK` when it cannot reach the certificate's revocation server. The flag is silently ignored on macOS and Linux, so it is safe everywhere — keep it in the command unconditionally.
+
+If curl fails for any other reason (no network, 404, empty response), abort and tell the user the source could not be fetched. Do not write anything.
 
 Sanity-check the fetched content: if it is fewer than 100 lines, treat as corrupted and abort.
 
