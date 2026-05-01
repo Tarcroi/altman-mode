@@ -1,0 +1,65 @@
+{
+  "skill_name": "altman-mode-install",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I just installed the altman-mode plugin. Install altman-mode in this project — there's no CLAUDE.md yet.",
+      "expected_output": "The skill fetches the source CLAUDE.md from GitHub, writes it to ./CLAUDE.md in the current working directory, and reports the number of lines written.",
+      "files": [],
+      "expectations": [
+        "A new file ./CLAUDE.md is created in the current working directory",
+        "The file content matches the source at https://raw.githubusercontent.com/Tarcroi/altman-mode/main/CLAUDE.md byte-for-byte (no extra wrapping headers or markers added)",
+        "The confirmation message includes the word 'Created' and a line count",
+        "The file does NOT contain the markers '<!-- BEGIN: altman-mode -->' or '<!-- END: altman-mode -->' (the entire file IS the altman-mode CLAUDE.md, nothing to delimit)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Add altman-mode guidelines to this project. I already have a CLAUDE.md with my project-specific rules — please don't overwrite them.",
+      "expected_output": "The skill reads the existing CLAUDE.md, appends the altman-mode section wrapped in BEGIN/END markers below the existing content, and reports lines added. The existing user content is preserved byte-for-byte.",
+      "files": ["./CLAUDE.md"],
+      "expectations": [
+        "The original lines of the existing CLAUDE.md are byte-identical at the top of the file after the operation",
+        "The file contains exactly one '<!-- BEGIN: altman-mode -->' marker and exactly one '<!-- END: altman-mode -->' marker",
+        "Between the markers, the content matches the fetched source from GitHub (with the source's leading '# CLAUDE.md' heading stripped)",
+        "The user's original content above the BEGIN marker is unchanged",
+        "The confirmation message indicates lines were APPENDED, not overwritten"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Update altman-mode in this project. I already ran this skill 3 weeks ago, the markers should already be there.",
+      "expected_output": "The skill detects existing markers, replaces only the content between them with the latest source, leaves everything else untouched. Idempotent on re-run.",
+      "files": ["./CLAUDE.md"],
+      "expectations": [
+        "The file still contains exactly one BEGIN marker and one END marker (no duplicates introduced)",
+        "Content above the BEGIN marker is byte-identical to before the operation",
+        "Content below the END marker is byte-identical to before the operation",
+        "Content between the markers matches the freshly fetched source",
+        "The confirmation message indicates the block was UPDATED (not appended, not created)"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Score my startup idea: an AI assistant for solo lawyers, $99/month.",
+      "expected_output": "This skill does NOT fire. The altman-grader skill handles scoring.",
+      "files": [],
+      "expectations": [
+        "No file ./CLAUDE.md is created or modified by this skill",
+        "No fetch to https://raw.githubusercontent.com/Tarcroi/altman-mode/main/CLAUDE.md is performed",
+        "If a response is generated at all, it relates to scoring the startup idea (altman-grader behavior), not to installing CLAUDE.md"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Installe altman-mode dans ce projet, j'ai déjà un CLAUDE.md je veux pas le perdre",
+      "expected_output": "The skill fires (French phrasing is supported), detects the existing CLAUDE.md, appends the altman-mode block with BEGIN/END markers, preserves the user's existing content.",
+      "files": ["./CLAUDE.md"],
+      "expectations": [
+        "The skill recognizes the French trigger phrase and fires",
+        "Existing CLAUDE.md content is preserved byte-for-byte above the BEGIN marker",
+        "BEGIN and END markers are added correctly, exactly once each"
+      ]
+    }
+  ]
+}

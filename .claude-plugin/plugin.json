@@ -18,6 +18,7 @@
     "leverage"
   ],
   "skills": [
-    "./skills/altman-grader"
+    "./skills/altman-grader",
+    "./skills/altman-mode-install"
   ]
 }

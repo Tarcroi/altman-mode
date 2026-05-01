@@ -13,9 +13,12 @@ Fine for tutorials. Wrong mode for serious AI, startup, and infrastructure work.
 ## What you get
 
 - **A `CLAUDE.md`** that rewires Claude's defaults around five rules: leverage, shipping speed, AI-as-product, safety-by-design, directness.
+- **The `altman-mode-install` skill** — a one-liner setup. Tell Claude "install altman-mode in this project" and it drops (or merges) the CLAUDE.md into your project.
 - **The `altman-grader` skill** — a brutal startup evaluator. You hand it an idea, it asks 7–12 sharp founder questions, then scores it out of 100 across 10 weighted categories.
 
 ## Install
+
+**Step 1 — Install the plugin (once)**
 
 From inside Claude Code:
 
@@ -24,12 +27,20 @@ From inside Claude Code:
 /plugin install altman-mode@altman-skills
 ```
 
-That's it. The `CLAUDE.md` becomes available globally and the skill auto-triggers on idea-scoring prompts.
+**Step 2 — Apply altman-mode to a project**
+
+In any project where you want the guidelines, just tell Claude:
+
+> install altman-mode in this project
+
+The `altman-mode-install` skill takes over. It creates a `CLAUDE.md` if there isn't one, or merges the altman-mode block into your existing one with `<!-- BEGIN/END: altman-mode -->` markers — your existing rules are preserved. Re-run anytime to update the block in place.
+
+The `altman-grader` skill triggers automatically on prompts like *"score my idea"* or *"évalue ce pitch"* — no setup needed.
 
 <details>
-<summary>Other ways to install</summary>
+<summary>Manual install (no plugin)</summary>
 
-**Drop just the `CLAUDE.md` into a single project:**
+**Drop the `CLAUDE.md` into a single project by hand:**
 
 ```bash
 curl -o CLAUDE.md https://raw.githubusercontent.com/Tarcroi/altman-mode/main/CLAUDE.md
