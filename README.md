@@ -35,7 +35,7 @@ In any project where you want the guidelines, just tell Claude:
 
 The `altman-mode-install` skill takes over. It creates a `CLAUDE.md` if there isn't one, or merges the altman-mode block into your existing one with `<!-- BEGIN/END: altman-mode -->` markers — your existing rules are preserved. Re-run anytime to update the block in place.
 
-The `altman-grader` skill triggers automatically on prompts like *"score my idea"* or *"évalue ce pitch"* — no setup needed.
+The `altman-grader` skill triggers automatically on prompts like *"score my idea"* or *"is this a tarpit?"* — no setup needed.
 
 <details>
 <summary>Manual install (no plugin)</summary>
@@ -101,7 +101,7 @@ Altman-Style Decision: Talk to 50 users.
 
 Most ideas score below 75. That's the point.
 
-Triggers automatically on prompts like *"score my idea"*, *"évalue ce pitch"*, *"is this a tarpit?"* — or call it explicitly with `/skill altman-grader`.
+Triggers automatically on prompts like *"score my idea"*, *"rate my startup out of 100"*, *"is this a tarpit?"* — or call it explicitly with `/skill altman-grader`.
 
 ## Don't install this if…
 

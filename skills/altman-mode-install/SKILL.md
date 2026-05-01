@@ -5,8 +5,7 @@ description: >
   project, non-destructively and idempotently. Use this skill when the user
   asks to install altman-mode in this project, add altman-mode guidelines
   here, set up altman-mode, apply altman mode, configure altman-mode, drop
-  in the altman CLAUDE.md, installe altman-mode, ajoute altman-mode dans ce
-  projet, applique altman-mode here, or any phrasing that means "set up the
+  in the altman CLAUDE.md, or any phrasing that means "set up the
   altman-mode CLAUDE.md in this folder". The skill creates a new CLAUDE.md if
   none exists, or appends the altman-mode guidelines wrapped in BEGIN/END
   HTML-comment markers if a CLAUDE.md is already present, preserving

@@ -15,7 +15,6 @@ Most ideas score below 75. That's the point.
 - "Is this a tarpit?"
 - "What would Sam Altman think?"
 - "Critique my MVP — be brutal"
-- "Évalue ce pitch comme un VC"
 
 ## When it doesn't
 

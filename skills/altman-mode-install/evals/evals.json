@@ -52,12 +52,12 @@
     },
     {
       "id": 5,
-      "prompt": "Installe altman-mode dans ce projet, j'ai déjà un CLAUDE.md je veux pas le perdre",
-      "expected_output": "The skill fires (French phrasing is supported), detects the existing CLAUDE.md, appends the altman-mode block with BEGIN/END markers, preserves the user's existing content.",
+      "prompt": "Drop the altman-mode CLAUDE.md into this folder, please don't touch my existing one if there is any.",
+      "expected_output": "The skill fires on this colloquial English phrasing, detects the existing CLAUDE.md if present, and appends the altman-mode block with BEGIN/END markers. The user's existing content is preserved.",
       "files": ["./CLAUDE.md"],
       "expectations": [
-        "The skill recognizes the French trigger phrase and fires",
-        "Existing CLAUDE.md content is preserved byte-for-byte above the BEGIN marker",
+        "The skill recognizes the colloquial trigger and fires",
+        "If a CLAUDE.md already exists, content above the BEGIN marker is preserved byte-for-byte",
         "BEGIN and END markers are added correctly, exactly once each"
       ]
     }

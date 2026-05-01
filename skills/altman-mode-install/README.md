@@ -31,8 +31,7 @@ Running the skill twice in a row, when the source hasn't changed, produces a byt
 - "Set up altman-mode"
 - "Apply altman mode"
 - "Configure altman-mode"
-- "Installe altman-mode dans ce projet"
-- "Ajoute altman-mode ici"
+- "Drop the altman-mode CLAUDE.md into this folder"
 
 ## When it doesn't
 
@@ -59,7 +58,7 @@ altman-mode-install/
 2. Existing CLAUDE.md without markers → altman-mode appended below with markers
 3. Existing CLAUDE.md with markers → altman-mode block updated in place
 4. Anti-trigger ("score my idea") → skill must not fire
-5. French phrasing → skill still fires
+5. Colloquial phrasing ("drop it in this folder") → skill still fires
 
 ## Iteration
 
