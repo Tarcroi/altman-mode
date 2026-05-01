@@ -1,0 +1,21 @@
+name: Feature request
+description: Suggest an improvement to the CLAUDE.md, the altman-grader rubric, or the skill behavior
+labels: [enhancement]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What would you change or add?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does it matter?
+      description: Pretend you're pitching it. Be specific about the user pain.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you've considered

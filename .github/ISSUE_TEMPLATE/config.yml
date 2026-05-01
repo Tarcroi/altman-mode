@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Discussions
+    url: https://github.com/Tarcroi/altman-mode/discussions
+    about: For general questions, score reactions, or sharing how you use altman-mode, please use Discussions.

@@ -1,0 +1,29 @@
+name: Bug report
+description: Something in the CLAUDE.md or the altman-grader skill is broken or wrong
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: Describe what you did and what you got back.
+      placeholder: |
+        I asked Claude to score "Uber for X" and instead it...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: input
+    id: claude-code-version
+    attributes:
+      label: Claude Code version
+      placeholder: e.g. 1.0.0
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else?
+      description: Logs, screenshots, or the prompt that triggered it.

@@ -1,0 +1,11 @@
+# Normalize line endings to LF on commit, regardless of platform
+* text=auto eol=lf
+
+# Markdown, JSON, YAML — always LF
+*.md   text eol=lf
+*.json text eol=lf
+*.yml  text eol=lf
+*.yaml text eol=lf
+
+# Shell scripts — must be LF
+*.sh text eol=lf
